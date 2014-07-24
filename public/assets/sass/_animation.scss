@@ -1,0 +1,66 @@
+// SHAKE ANIMATION
+
+.shake {
+    @include animation(shake 0.8s linear);
+}
+
+@include keyframes(shake) {
+    0%, 100% {
+        @include transform(translateX(0));
+    }
+    20%, 40%, 60%, 80% {
+        @include transform(translateX(3px));
+    }
+    10%, 30%, 50%, 70% {
+        @include transform(translateX(-3px));
+    }
+}
+
+//---------------------------------------------------------------------------------
+//  ALERT ANIMATION
+//---------------------------------------------------------------------------------
+
+.alert-msg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: $navbar-h;
+    padding: 13px 0;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 400;
+    z-index: 1051;
+    background: $body-bg;
+
+    &.error {
+        color: $btn-danger-color;
+        background: $brand-danger;
+    }
+    &.info {
+        color: $btn-primary-color;
+        background: $brand-primary;
+    }
+    &.success {
+        color: $btn-success-color;
+        background: $brand-success;
+    }
+    &.fixfixed {
+        position: absolute !important;
+    }
+}
+
+.cssanimations.csstransforms .alert-msg {
+    @include transform(translateY(-62px));
+    @include animation(slideDown 2.5s 0.1s 1 ease forwards);
+}
+
+@include keyframes(slideDown) {
+    0%, 100% {
+        @include transform(translateY(-62px));
+    }
+    10%, 90% {
+        @include transform(translateY(0px));
+    }
+}

@@ -1,0 +1,27 @@
+// Import lib dependency (bootstrap + bourbon + Font-awesome)
+@import "lib";
+@import "mixins";
+
+@import "animation";
+@import "bootstrap";
+
+// Plugins css
+@import "selectizebs3";
+
+// Import google font
+// @import url("http://fonts.googleapis.com/css?family=Montserrat:400,700");
+
+// GENERIC TAGS
+
+body
+{
+	background: $white;
+}
+
+
+
+
+
+
+@import "media_queries";
+

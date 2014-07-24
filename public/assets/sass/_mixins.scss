@@ -1,0 +1,17 @@
+@mixin a-link($color: $white) {	
+	color: $color;
+	transition: color linear 0.2s;
+    &:hover {
+        color: $color;
+        text-decoration: underline;
+    }
+}
+
+@mixin frame-wrapper($radius: 6px, $pad: $pad, $color: $gray-main) {
+	
+	background-color: $color;
+	border-radius: $radius;
+	border: 1px solid $gray-border;
+	padding: $pad;
+
+}
