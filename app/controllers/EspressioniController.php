@@ -6,6 +6,7 @@ class EspressioniController extends BaseController {
 
 	public static $messages = [
 		'required' => 'Il campo :attribute è obbligatorio',
+		'unique' => 'Questa espressione è già presente',
 	];
 
 	public function __construct(Espressione $espressione)
@@ -47,7 +48,7 @@ class EspressioniController extends BaseController {
 	public function store()
 	{
 		$input = array_except(Input::all(), '_method');
-		$validation = Validator::make($input, Espressione::$rules, self::$messages);
+		$validation = Validator::make($input, Espressione::rules(), self::$messages);
 
 		if ($validation->passes())
 		{
@@ -103,7 +104,7 @@ class EspressioniController extends BaseController {
 	public function update($id)
 	{
 		$input = array_except(Input::all(), '_method');
-		$validation = Validator::make($input, Espressione::$rules, self::$messages);
+		$validation = Validator::make($input, Espressione::rules($id), self::$messages);
 
 		if ($validation->passes())
 		{

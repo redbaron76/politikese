@@ -25,11 +25,13 @@ class Espressione extends Eloquent {
 	 * [$rules description]
 	 * @var [type]
 	 */
-	public static $rules = [
-		'text' => 'required',
-		'genere' => 'required',
-		'numero' => 'required',
-	];
+	public static function rules($id = null) {
+		return [
+			'text' => 'required|unique:espressioni,text' . ($id ? ",$id" : ''),
+			'genere' => 'required',
+			'numero' => 'required'
+		];
+	}
 
 	/**
 	 * [articoli description]
