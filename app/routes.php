@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return config('project_name');
+	return View::make('hello');
 });
 
 Route::resource('espressioni', 'EspressioniController');
