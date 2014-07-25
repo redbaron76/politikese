@@ -25,6 +25,8 @@
 
 		<div class="container-fluid">
 
+			@include('menu')
+
 			@yield('layout')
 		
 		</div>
