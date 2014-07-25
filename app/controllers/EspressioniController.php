@@ -2,9 +2,16 @@
 
 class EspressioniController extends BaseController {
 
-	public function __construct()
+	protected $espressione;
+
+	public static $messages = [
+		'required' => 'Il campo :attribute è obbligatorio',
+	];
+
+	public function __construct(Espressione $espressione)
 	{
-		// $this->beforeFilter('auth.basic');
+		$this->beforeFilter('auth.basic');
+		$this->espressione = $espressione;
 	}
 
 	/**
@@ -15,9 +22,9 @@ class EspressioniController extends BaseController {
 	 */
 	public function index()
 	{
-		$espressioni = Espressione::paginate(20);
+		$espressioni = $this->espressione->orderBy('text', 'asc')->paginate(20);
 
-		return View::make('espressioni.index', ['espressioni' => $espressioni]);
+		return View::make('espressioni.index', compact('espressioni'));
 	}
 
 	/**
@@ -28,7 +35,7 @@ class EspressioniController extends BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('espressioni.create');
 	}
 
 	/**
@@ -39,7 +46,20 @@ class EspressioniController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = array_except(Input::all(), '_method');
+		$validation = Validator::make($input, Espressione::$rules, self::$messages);
+
+		if ($validation->passes())
+		{
+			$this->espressione->create($input);
+
+			return Redirect::route('espressioni.index');
+		}
+
+		return Redirect::route('espressioni.create')
+			->withInput()
+			->withErrors($validation)
+			->with('message', 'Si è verificato un errore');
 	}
 
 	/**
@@ -63,7 +83,14 @@ class EspressioniController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$espressione = $this->espressione->find($id);
+
+		if (is_null($espressione))
+		{
+			return Redirect::route('espressioni.index');
+		}
+
+		return View::make('espressioni.edit', compact('espressione'));
 	}
 
 	/**
@@ -75,7 +102,21 @@ class EspressioniController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = array_except(Input::all(), '_method');
+		$validation = Validator::make($input, Espressione::$rules, self::$messages);
+
+		if ($validation->passes())
+		{
+			$espressione = $this->espressione->find($id);
+			$espressione->update($input);
+
+			return Redirect::route('espressioni.index');
+		}
+
+		return Redirect::route('espressioni.edit', $id)
+			->withInput()
+			->withErrors($validation)
+			->with('message', 'Si è verificato un errore');
 	}
 
 	/**
@@ -87,7 +128,9 @@ class EspressioniController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$this->espressione->find($id)->delete();
+
+		return Redirect::route('espressioni.index');
 	}
 
 }

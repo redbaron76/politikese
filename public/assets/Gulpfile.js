@@ -138,8 +138,8 @@ gulp.task('plugins', function() {
 
 // Uglify and move script.js
 gulp.task('script', function() {
-	return gulp.src(jsDir + '/ambientdesk.js')
-		.pipe(concat('ambientdesk.min.js'))
+	return gulp.src(jsDir + '/politikese.js')
+		.pipe(concat('politikese.min.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest(targetJsDir));
 });

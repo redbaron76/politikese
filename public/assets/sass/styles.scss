@@ -18,7 +18,22 @@ body
 	background: $white;
 }
 
+.actions > * {
+    display: inline-block;
+}
 
+form {
+
+    .submit {
+        background-color: $gray-lighter;
+        padding: 20px 10px;
+        text-align: right;
+
+        .btn {
+            min-width: 100px;
+        }
+    }
+}
 
 
 

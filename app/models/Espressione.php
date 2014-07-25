@@ -22,6 +22,16 @@ class Espressione extends Eloquent {
 	protected $guarded = ['id'];
 
 	/**
+	 * [$rules description]
+	 * @var [type]
+	 */
+	public static $rules = [
+		'text' => 'required',
+		'genere' => 'required',
+		'numero' => 'required',
+	];
+
+	/**
 	 * [articoli description]
 	 * @return [type] [description]
 	 */
