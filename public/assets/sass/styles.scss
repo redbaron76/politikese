@@ -18,8 +18,13 @@ body
 	background: $white;
 }
 
-.actions > * {
-    display: inline-block;
+.actions{
+    
+    text-align: right;
+
+    & > * {
+        display: inline-block;
+    }
 }
 
 form {
