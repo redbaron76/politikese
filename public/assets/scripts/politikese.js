@@ -22,7 +22,7 @@ Politikese.UI = {
 
 Politikese.Selectize = {
 
-	itemSelect: function(selector, value, label, items, api_url) {
+	itemAddSelect: function(selector, value, label, items, api_url) {
 		$(selector).selectize({
 			delimiter: ',',
 			valueField: value,
@@ -37,6 +37,36 @@ Politikese.Selectize = {
 					id: input,
 					text: input
 				}
+			},
+			render: {
+				item: function(item, escape) {
+					return '<div data-value="' + item[value] + '">' + escape(item[label]) + '</div>';
+				},
+				option: function(item, escape) {
+					return '<div data-value="' + item[value] + '">' + escape(item[label]) + '</div>';
+				},
+			},
+			load: function(query, callback) {
+				if (!query.length) return callback();
+				var url = Politikese.Utils.url(api_url);
+				$.post(url, {
+					q: query
+				}, function(res) {
+					callback(res);
+				});
+			}
+		});
+	},
+
+	itemSelect: function(selector, value, label, items, api_url) {
+		$(selector).selectize({
+			delimiter: ',',
+			valueField: value,
+			labelField: label,
+			searchField: [],
+			maxOptions: items,
+			onInitialize: function() {
+				this.settings.searchField[0] = label;
 			},
 			render: {
 				item: function(item, escape) {
