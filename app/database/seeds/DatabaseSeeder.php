@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('EspressioniTableSeeder');
 		$this->call('PreposizioniTableSeeder');
 		$this->call('CongiunzioniTableSeeder');
+		$this->call('ArticoliTableSeeder');
 	}
 
 }

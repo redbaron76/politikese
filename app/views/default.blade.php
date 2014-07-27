@@ -17,6 +17,7 @@
 	<link rel="shortcut icon" href="favicon.ico" />
 	
 	{{ HTML::style('css/styles.css') }}
+	{{ HTML::script('init.js') }}
 
 </head>
 <body>
@@ -35,6 +36,7 @@
 	
 	{{ HTML::script('js/lib/jquery.min.js') }}
 	{{ HTML::script('js/lib/bootstrap.min.js') }}
+	{{ HTML::script('js/plugins.min.js') }}
 	{{ HTML::script('js/politikese.min.js') }}
 
 	<!-- <script>
@@ -45,6 +47,8 @@
 		r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
 		ga('create','UA-XXXXX-X');ga('send','pageview');
 	</script> -->
+
+	@yield('footer-js')
 
 </body>
 </html>

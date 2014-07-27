@@ -58,7 +58,7 @@ return [
 		'numero' => 's'
 	],
 	[
-		'text' => 'Camera dei depitati',
+		'text' => 'Camera dei deputati',
 		'genere' => 'f',
 		'numero' => 's'
 	],

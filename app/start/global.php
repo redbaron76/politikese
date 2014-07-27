@@ -79,3 +79,6 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+// REGISTER CUSTOM EVENTS
+require app_path().'/events.php';

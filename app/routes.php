@@ -16,4 +16,13 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
+// INIT JS
+Route::get('init.js', array('uses' => 'BaseController@init', 'as' => 'js.init'));
+
+// ESPRESSIONI
 Route::resource('espressioni', 'EspressioniController');
+
+// API CALLS
+Route::post('api/articoli', array('uses' => 'ApiController@getArticoli', 'as' => 'api.articoli'));
+Route::post('api/preposizioni', array('uses' => 'ApiController@getPreposizioni', 'as' => 'api.preposizioni'));
+Route::post('api/tags', array('uses' => 'ApiController@getTags', 'as' => 'api.tags'));

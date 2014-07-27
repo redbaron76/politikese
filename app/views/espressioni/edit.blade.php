@@ -12,8 +12,12 @@
 	{{ implode('', $errors->all('<li class="error"><div class="alert alert-danger" role="alert">:message</div></li>')) }}
 	</ul>
 	@endif
-
+	
+	@if(isset($espressione))
 	{{ Form::model($espressione, ['method' => 'PATCH', 'route' => ['espressioni.update', $espressione['id']]]) }}
+	@else
+	{{ Form::open(['route' => 'espressioni.store']) }}
+	@endif
 
 	<div class="form-group">
 		{{ Form::label('text', 'Espressione') }}
@@ -41,7 +45,36 @@
 			</label>
 		</div>
 	</div>
-	
+	<div class="form-group" rel="articoli">
+		{{ Form::label('articoli', 'Articoli') }}
+		<select name="articoli[]" class="form-control select-articoli" multiple="multiple" placeholder="Aggiungere gli articoli appropriati per questa espressione">
+			@if(isset($espressione->articoli))
+			@foreach($espressione->articoli as $articolo)
+			<option value="{{ $articolo['id'] }}" selected="selected">{{ $articolo['text'] }}</option>
+			@endforeach
+			@endif
+		</select>
+	</div>
+	<div class="form-group" rel="preposizioni">
+		{{ Form::label('preposizioni', 'Preposizioni') }}
+		<select name="preposizioni[]" class="form-control select-preposizioni" multiple="multiple" placeholder="Aggiungere le preposizioni più appropriate per questa espressione">
+			@if(isset($espressione->preposizioni))
+			@foreach($espressione->preposizioni as $preposizione)
+			<option value="{{ $preposizione['id'] }}" selected="selected">{{ $preposizione['text'] }}</option>
+			@endforeach
+			@endif
+		</select>
+	</div>
+	<div class="form-group" rel="tags">
+		{{ Form::label('tags', 'Tags') }}
+		<select name="tags[]" class="form-control select-tags" multiple="multiple" placeholder="Aggiungere i tags appropriati per questa espressione">
+			@if(isset($espressione->tags))
+			@foreach($espressione->tags as $tag)
+			<option value="{{ $tag['id'] }}" selected="selected">{{ $tag['text'] }}</option>
+			@endforeach
+			@endif
+		</select>
+	</div>	
 	<div class="form-group submit">
 		{{ Form::submit('Salva', ['class' => 'btn btn-primary']) }}
 		{{ link_to_route('espressioni.index', 'Indietro', null, ['class' => 'btn btn-default']) }}
@@ -49,4 +82,9 @@
 
 	{{ Form::close() }}
 
+@stop
+
+@section('footer-js')
+	@parent
+	{{ HTML::script('js/espressioni/edit.js') }}
 @stop

@@ -30,6 +30,11 @@ return [
 		'numero' => 'n'
 	],
 	[
+		'text' => 'col',
+		'genere' => 'm',
+		'numero' => 's'
+	],
+	[
 		'text' => 'su',
 		'genere' => 'n',
 		'numero' => 'n'

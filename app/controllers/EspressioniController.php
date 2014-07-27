@@ -2,13 +2,25 @@
 
 class EspressioniController extends BaseController {
 
+	/**
+	 * [$espressione description]
+	 * @var [type]
+	 */
 	protected $espressione;
 
+	/**
+	 * [$messages description]
+	 * @var [type]
+	 */
 	public static $messages = [
 		'required' => 'Il campo :attribute è obbligatorio',
 		'unique' => 'Questa espressione è già presente',
 	];
 
+	/**
+	 * [__construct description]
+	 * @param Espressione $espressione [description]
+	 */
 	public function __construct(Espressione $espressione)
 	{
 		$this->beforeFilter('auth.basic');
@@ -36,7 +48,8 @@ class EspressioniController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('espressioni.create');
+		// return View::make('espressioni.create');
+		return View::make('espressioni.edit');
 	}
 
 	/**
@@ -52,7 +65,25 @@ class EspressioniController extends BaseController {
 
 		if ($validation->passes())
 		{
-			$this->espressione->create($input);
+			if(isset($input['articoli']))
+			{
+				Event::fire('articoli.save', [$espressione, $input['articoli']]);
+				$input = array_except($input, 'articoli');
+			}
+
+			if(isset($input['preposizioni']))
+			{
+				Event::fire('preposizioni.save', [$espressione, $input['preposizioni']]);
+				$input = array_except($input, 'preposizioni');
+			}
+
+			if(isset($input['tags']))
+			{
+				Event::fire('tags.save', [$espressione, $input['tags']]);
+				$input = array_except($input, 'tags');
+			}
+
+			$espressione = $this->espressione->create($input);
 
 			return Redirect::route('espressioni.index');
 		}
@@ -84,7 +115,10 @@ class EspressioniController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		$espressione = $this->espressione->find($id);
+		$espressione = $this->espressione
+							->with(['articoli', 'congiunzioni', 'preposizioni', 'tags'])
+							->whereId($id)
+							->first();
 
 		if (is_null($espressione))
 		{
@@ -109,6 +143,25 @@ class EspressioniController extends BaseController {
 		if ($validation->passes())
 		{
 			$espressione = $this->espressione->find($id);
+
+			if(isset($input['articoli']))
+			{
+				Event::fire('articoli.save', [$espressione, $input['articoli']]);
+				$input = array_except($input, 'articoli');
+			}
+
+			if(isset($input['preposizioni']))
+			{
+				Event::fire('preposizioni.save', [$espressione, $input['preposizioni']]);
+				$input = array_except($input, 'preposizioni');
+			}
+			
+			if(isset($input['tags']))
+			{
+				Event::fire('tags.save', [$espressione, $input['tags']]);
+				$input = array_except($input, 'tags');
+			}
+
 			$espressione->update($input);
 
 			return Redirect::route('espressioni.index');
