@@ -65,45 +65,36 @@ class EspressioniController extends BaseController {
 
 		if ($validation->passes())
 		{
+			$espressione_new = [
+				'text' => $input['text'],
+				'genere' => $input['genere'],
+				'numero' => $input['numero']
+			];
+
+			$espressione = $this->espressione->create($espressione_new);
+
 			if(isset($input['articoli']))
 			{
 				Event::fire('articoli.save', [$espressione, $input['articoli']]);
-				$input = array_except($input, 'articoli');
 			}
 
 			if(isset($input['preposizioni']))
 			{
 				Event::fire('preposizioni.save', [$espressione, $input['preposizioni']]);
-				$input = array_except($input, 'preposizioni');
 			}
 
 			if(isset($input['tags']))
 			{
 				Event::fire('tags.save', [$espressione, $input['tags']]);
-				$input = array_except($input, 'tags');
 			}
-
-			$espressione = $this->espressione->create($input);
 
 			return Redirect::route('espressioni.index');
 		}
 
-		return Redirect::route('espressioni.create')
+		return Redirect::route('espressioni.edit')
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'Si è verificato un errore');
-	}
-
-	/**
-	 * Display the specified resource.
-	 * GET /espressionis/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
 	}
 
 	/**
@@ -116,7 +107,7 @@ class EspressioniController extends BaseController {
 	public function edit($id)
 	{
 		$espressione = $this->espressione
-							->with(['articoli', 'congiunzioni', 'preposizioni', 'tags'])
+							->with(['articoli', 'preposizioni', 'tags'])
 							->whereId($id)
 							->first();
 

@@ -22,6 +22,17 @@ class Avverbio extends Eloquent {
 	protected $guarded = ['id'];
 
 	/**
+	 * [$rules description]
+	 * @var [type]
+	 */
+	public static function rules($id = null)
+	{
+		return [
+			'text' => 'required|unique:avverbi,text' . ($id ? ",$id" : '')
+		];
+	}
+
+	/**
 	 * [tags description]
 	 * @return [type] [description]
 	 */

@@ -24,6 +24,17 @@ class Tag extends Eloquent {
 	protected $guarded = ['id'];
 
 	/**
+	 * [$rules description]
+	 * @var [type]
+	 */
+	public static function rules($id = null)
+	{
+		return [
+			'text' => 'required|unique:tags,text' . ($id ? ",$id" : '')
+		];
+	}
+
+	/**
 	 * [aggettivi description]
 	 * @return [type] [description]
 	 */

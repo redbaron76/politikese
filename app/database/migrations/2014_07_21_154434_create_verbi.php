@@ -17,7 +17,6 @@ class CreateVerbi extends Migration {
 			$table->increments('id');
 			$table->string('infinito', 255);
 			$table->string('gerundio', 255);
-			$table->string('participio', 255);
 			$table->string('presente1s', 255);
 			$table->string('presente3s', 255);
 			$table->string('presente1p', 255);
@@ -32,6 +31,10 @@ class CreateVerbi extends Migration {
 			$table->string('riflessivo3p', 255);
 			$table->string('congiuntivo1s', 255);
 			$table->string('congiuntivo3s', 255);
+			$table->string('congiuntivo1p', 255);
+			$table->string('congiuntivo3p', 255);
+			$table->string('partpresente', 255);
+			$table->string('partpassato', 255);
 			$table->timestamps();
 		});
 	}

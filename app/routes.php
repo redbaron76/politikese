@@ -19,8 +19,11 @@ Route::get('/', function()
 // INIT JS
 Route::get('init.js', array('uses' => 'BaseController@init', 'as' => 'js.init'));
 
-// ESPRESSIONI
+// SEZIONI
 Route::resource('espressioni', 'EspressioniController');
+Route::resource('verbi', 'VerbiController');
+Route::resource('avverbi', 'AvverbiController');
+Route::resource('tags', 'TagsController');
 
 // API CALLS
 Route::post('api/articoli', array('uses' => 'ApiController@getArticoli', 'as' => 'api.articoli'));

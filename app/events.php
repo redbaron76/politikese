@@ -3,29 +3,29 @@
 /**
  * Sync articoli
  */
-Event::listen('articoli.save', function($espressione, $articoli)
+Event::listen('articoli.save', function($model, $articoli)
 {
 	if(is_array($articoli))
 	{
-		$espressione->articoli()->sync($articoli);
+		$model->articoli()->sync($articoli);
 	}
 });
 
 /**
  * Sync preposizioni
  */
-Event::listen('preposizioni.save', function($espressione, $preposizioni)
+Event::listen('preposizioni.save', function($model, $preposizioni)
 {
 	if(is_array($preposizioni))
 	{
-		$espressione->preposizioni()->sync($preposizioni);
+		$model->preposizioni()->sync($preposizioni);
 	}
 });
 
 /**
  * Save and sync tags
  */
-Event::listen('tags.save', function($espressione, $tags)
+Event::listen('tags.save', function($model, $tags)
 {
 	if(is_array($tags))
 	{
@@ -47,14 +47,14 @@ Event::listen('tags.save', function($espressione, $tags)
 		}
 
 		// Sync old values
-		$espressione->tags()->sync($old_tags);
+		$model->tags()->sync($old_tags);
 
 		// Write new tags
 		foreach ($new_tags as $new_tag)
 		{
 			$tag_created = Tag::create(['text' => $new_tag]);
 
-			$espressione->tags()->save($tag_created);
+			$model->tags()->save($tag_created);
 		}
 
 	}

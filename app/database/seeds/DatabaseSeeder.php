@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder {
 		$this->call('PreposizioniTableSeeder');
 		$this->call('CongiunzioniTableSeeder');
 		$this->call('ArticoliTableSeeder');
+		$this->call('AvverbiTableSeeder');
+		$this->call('VerbiTableSeeder');
 	}
 
 }

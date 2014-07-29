@@ -10,7 +10,7 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th>Testo</th>
+				<th>Espressione</th>
 				<th>Genere</th>
 				<th>Numero</th>
 				<th>&nbsp;</th>
