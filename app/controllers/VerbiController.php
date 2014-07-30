@@ -59,7 +59,7 @@ class VerbiController extends BaseController {
 	 */
 	public function store()
 	{
-		$input = array_except(Input::all(), '_method');
+		$input = Input::all();
 		$validation = Validator::make($input, Verbo::rules(), self::$messages);
 
 		if ($validation->passes())
@@ -107,7 +107,7 @@ class VerbiController extends BaseController {
 			return Redirect::route('espressioni.index');
 		}
 
-		return Redirect::route('verbi.edit')
+		return Redirect::route('verbi.create')
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'Si è verificato un errore');

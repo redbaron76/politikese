@@ -17,3 +17,11 @@ if ( ! function_exists('config'))
 		return Config::get('system.'.$key);
 	}
 }
+
+if ( ! function_exists('politikese'))
+{
+	function politikese($key)
+	{
+		return Config::get('politikese.'.$key);
+	}
+}

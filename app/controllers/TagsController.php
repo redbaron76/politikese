@@ -59,7 +59,7 @@ class TagsController extends BaseController {
 	 */
 	public function store()
 	{
-		$input = array_except(Input::all(), '_method');
+		$input = Input::all();
 		$validation = Validator::make($input, Tag::rules(), self::$messages);
 
 		if ($validation->passes())
@@ -73,7 +73,7 @@ class TagsController extends BaseController {
 			return Redirect::route('tags.index');
 		}
 
-		return Redirect::route('tags.edit')
+		return Redirect::route('tags.create')
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'Si è verificato un errore');

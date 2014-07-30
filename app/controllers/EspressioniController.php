@@ -60,7 +60,7 @@ class EspressioniController extends BaseController {
 	 */
 	public function store()
 	{
-		$input = array_except(Input::all(), '_method');
+		$input = Input::all();
 		$validation = Validator::make($input, Espressione::rules(), self::$messages);
 
 		if ($validation->passes())
@@ -91,7 +91,7 @@ class EspressioniController extends BaseController {
 			return Redirect::route('espressioni.index');
 		}
 
-		return Redirect::route('espressioni.edit')
+		return Redirect::route('espressioni.create')
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'Si è verificato un errore');

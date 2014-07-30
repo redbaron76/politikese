@@ -60,7 +60,7 @@ class AvverbiController extends BaseController {
 	 */
 	public function store()
 	{
-		$input = array_except(Input::all(), '_method');
+		$input = Input::all();
 		$validation = Validator::make($input, Avverbio::rules(), self::$messages);
 
 		if ($validation->passes())
@@ -79,7 +79,7 @@ class AvverbiController extends BaseController {
 			return Redirect::route('avverbi.index');
 		}
 
-		return Redirect::route('avverbi.edit')
+		return Redirect::route('avverbi.create')
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'Si è verificato un errore');
