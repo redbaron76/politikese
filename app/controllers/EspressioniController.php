@@ -35,7 +35,9 @@ class EspressioniController extends BaseController {
 	 */
 	public function index()
 	{
-		$espressioni = $this->espressione->orderBy('text', 'asc')->paginate(20);
+		$espressioni = $this->espressione
+							->with(['articoli', 'preposizioni', 'tags'])
+							->orderBy('text', 'asc')->paginate(20);
 
 		return View::make('espressioni.index', compact('espressioni'));
 	}
@@ -140,17 +142,29 @@ class EspressioniController extends BaseController {
 				Event::fire('articoli.save', [$espressione, $input['articoli']]);
 				$input = array_except($input, 'articoli');
 			}
+			else
+			{
+				Event::fire('articoli.remove', [$espressione]);
+			}
 
 			if(isset($input['preposizioni']))
 			{
 				Event::fire('preposizioni.save', [$espressione, $input['preposizioni']]);
 				$input = array_except($input, 'preposizioni');
 			}
+			else
+			{
+				Event::fire('preposizioni.remove', [$espressione]);
+			}
 			
 			if(isset($input['tags']))
 			{
 				Event::fire('tags.save', [$espressione, $input['tags']]);
 				$input = array_except($input, 'tags');
+			}
+			else
+			{
+				Event::fire('tags.remove', [$espressione]);
 			}
 
 			$espressione->update($input);

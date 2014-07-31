@@ -11,6 +11,11 @@ Event::listen('articoli.save', function($model, $articoli)
 	}
 });
 
+Event::listen('articoli.remove', function($model)
+{
+	$model->articoli()->detach();
+});
+
 /**
  * Sync preposizioni
  */
@@ -20,6 +25,11 @@ Event::listen('preposizioni.save', function($model, $preposizioni)
 	{
 		$model->preposizioni()->sync($preposizioni);
 	}
+});
+
+Event::listen('preposizioni.remove', function($model)
+{
+	$model->preposizioni()->detach();
 });
 
 /**
@@ -56,6 +66,10 @@ Event::listen('tags.save', function($model, $tags)
 
 			$model->tags()->save($tag_created);
 		}
-
 	}
+});
+
+Event::listen('tags.remove', function($model)
+{
+	$model->tags()->detach();
 });

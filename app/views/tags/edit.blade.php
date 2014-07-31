@@ -21,7 +21,7 @@
 
 	<div class="form-group">
 		{{ Form::label('text', 'Tag') }}
-		{{ Form::text('text', Input::old('text'), ['class' => 'form-control']) }}
+		{{ Form::text('text', Input::old('text'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off']) }}
 	</div>
 
 	<div class="form-group submit">

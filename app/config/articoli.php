@@ -16,7 +16,7 @@ return [
 	],
 	[
 		'text' => 'l\'',
-		'genere' => 'm',
+		'genere' => 'n',
 		'numero' => 's'
 	],
 	[
@@ -34,11 +34,6 @@ return [
 
 	[
 		'text' => 'la',
-		'genere' => 'f',
-		'numero' => 's'
-	],
-	[
-		'text' => 'l\'',
 		'genere' => 'f',
 		'numero' => 's'
 	],

@@ -22,55 +22,55 @@
 	<div class="form-inline">
 		<div class="form-group">
 			{{ Form::label('text', 'Infinito') }}
-			{{ Form::text('infinito', Input::old('infinito'), ['class' => 'form-control']) }}
+			{{ Form::text('infinito', Input::old('infinito'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off']) }}
 		</div>
 	</div>
 
 	<div class="form-inline">
 		<div class="form-group">
 			{{ Form::label('text', 'Presente') }}
-			{{ Form::text('presente1s', Input::old('presente1s'), ['class' => 'form-control', 'placeholder' => '1s']) }}
-			{{ Form::text('presente3s', Input::old('presente3s'), ['class' => 'form-control', 'placeholder' => '3s']) }}
-			{{ Form::text('presente1p', Input::old('presente1p'), ['class' => 'form-control', 'placeholder' => '1p']) }}
-			{{ Form::text('presente3p', Input::old('presente3p'), ['class' => 'form-control', 'placeholder' => '3p']) }}
+			{{ Form::text('presente1s', Input::old('presente1s'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => '1s']) }}
+			{{ Form::text('presente3s', Input::old('presente3s'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => '3s']) }}
+			{{ Form::text('presente1p', Input::old('presente1p'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => '1p']) }}
+			{{ Form::text('presente3p', Input::old('presente3p'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => '3p']) }}
 		</div>
 	</div>
 
 	<div class="form-inline">
 		<div class="form-group">
 			{{ Form::label('text', 'Passato') }}
-			{{ Form::text('passato1s', Input::old('passato1s'), ['class' => 'form-control', 'placeholder' => '1s']) }}
-			{{ Form::text('passato3s', Input::old('passato3s'), ['class' => 'form-control', 'placeholder' => '3s']) }}
-			{{ Form::text('passato1p', Input::old('passato1p'), ['class' => 'form-control', 'placeholder' => '1p']) }}
-			{{ Form::text('passato3p', Input::old('passato3p'), ['class' => 'form-control', 'placeholder' => '3p']) }}
+			{{ Form::text('passato1s', Input::old('passato1s'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => '1s']) }}
+			{{ Form::text('passato3s', Input::old('passato3s'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => '3s']) }}
+			{{ Form::text('passato1p', Input::old('passato1p'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => '1p']) }}
+			{{ Form::text('passato3p', Input::old('passato3p'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => '3p']) }}
 		</div>
 	</div>
 
 	<div class="form-inline">
 		<div class="form-group">
 			{{ Form::label('text', 'Riflessivo') }}
-			{{ Form::text('riflessivo1s', Input::old('riflessivo1s'), ['class' => 'form-control', 'placeholder' => '1s']) }}
-			{{ Form::text('riflessivo3s', Input::old('riflessivo3s'), ['class' => 'form-control', 'placeholder' => '3s']) }}
-			{{ Form::text('riflessivo1p', Input::old('riflessivo1p'), ['class' => 'form-control', 'placeholder' => '1p']) }}
-			{{ Form::text('riflessivo3p', Input::old('riflessivo3p'), ['class' => 'form-control', 'placeholder' => '3p']) }}
+			{{ Form::text('riflessivo1s', Input::old('riflessivo1s'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => '1s']) }}
+			{{ Form::text('riflessivo3s', Input::old('riflessivo3s'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => '3s']) }}
+			{{ Form::text('riflessivo1p', Input::old('riflessivo1p'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => '1p']) }}
+			{{ Form::text('riflessivo3p', Input::old('riflessivo3p'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => '3p']) }}
 		</div>
 	</div>
 
 	<div class="form-inline">
 		<div class="form-group">
 			{{ Form::label('text', 'Congiuntivo') }}
-			{{ Form::text('congiuntivo1s', Input::old('congiuntivo1s'), ['class' => 'form-control', 'placeholder' => '1s']) }}
-			{{ Form::text('congiuntivo3s', Input::old('congiuntivo3s'), ['class' => 'form-control', 'placeholder' => '3s']) }}
-			{{ Form::text('congiuntivo1p', Input::old('congiuntivo1p'), ['class' => 'form-control', 'placeholder' => '1p']) }}
-			{{ Form::text('congiuntivo3p', Input::old('congiuntivo3p'), ['class' => 'form-control', 'placeholder' => '3p']) }}
+			{{ Form::text('congiuntivo1s', Input::old('congiuntivo1s'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => '1s']) }}
+			{{ Form::text('congiuntivo3s', Input::old('congiuntivo3s'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => '3s']) }}
+			{{ Form::text('congiuntivo1p', Input::old('congiuntivo1p'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => '1p']) }}
+			{{ Form::text('congiuntivo3p', Input::old('congiuntivo3p'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => '3p']) }}
 		</div>
 	</div>
 
 	<div class="form-inline">
 		<div class="form-group">
 			{{ Form::label('text', 'Participio') }}
-			{{ Form::text('partpresente', Input::old('partpresente'), ['class' => 'form-control', 'placeholder' => 'presente']) }}
-			{{ Form::text('partpassato', Input::old('partpassato'), ['class' => 'form-control', 'placeholder' => 'passato']) }}
+			{{ Form::text('partpresente', Input::old('partpresente'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => 'presente']) }}
+			{{ Form::text('partpassato', Input::old('partpassato'), ['class' => 'form-control', 'autocorrect' => 'off', 'autocapitalize' => 'off' 'placeholder' => 'passato']) }}
 		</div>
 	</div>
 

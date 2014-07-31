@@ -40,6 +40,17 @@ form {
     padding-top: 20px;
 }
 
+table {
+    .label {
+        font-size: 90% !important;
+        font-weight: normal !important;
+    }
+
+    td:last-of-type {
+        min-width: 150px;
+    }
+}
+
 form {
 
     .submit {

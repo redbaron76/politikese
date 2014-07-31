@@ -305,7 +305,7 @@ return [
 		'numero' => 'n'
 	],
 	[
-		'text' => 'tranne',
+		'text' => 'ce',
 		'genere' => 'n',
 		'numero' => 'n'
 	],
@@ -336,11 +336,6 @@ return [
 	],
 	[
 		'text' => 'avanti',
-		'genere' => 'n',
-		'numero' => 'n'
-	],
-	[
-		'text' => 'oltre',
 		'genere' => 'n',
 		'numero' => 'n'
 	],

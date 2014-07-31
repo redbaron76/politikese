@@ -1,27 +1,6 @@
 <?php
 
 return [
-	
-	'genere' => [
-
-		'maschile' 	=> 'm',
-		'femminile'	=> 'f'
-
-	],
-
-	'numero' => [
-
-		'singolare' => 's',
-		'plurale'	=> 'p'
-
-	],
-
-	'tempo' => [
-
-		'presente',
-		'passato'
-
-	],
 
 	'elementi' => [
 
@@ -96,6 +75,55 @@ return [
 
 		]
 
-	]
+	],
+
+	/**
+	 * Vocali
+	 */
+	
+	'vocali' => ['a', 'e', 'i', 'o', 'u'],
+
+	/**
+	 * Consonanti
+	 */
+	
+	'consonanti' => ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'x', 'y', 'z'],
+
+	/**
+	 * RANDOM - Genere | Numero
+	 * ---------------------------------
+	 * Selezionati random prima dell'incipit
+	 * e salvati in proprietà della classe
+	 * per determinare genere
+	 */
+
+	'genere' => [
+
+		'maschile' 	=> 'm',
+		'femminile'	=> 'f'
+
+	],
+
+	'numero' => [
+
+		'singolare' => 's',
+		'plurale'	=> 'p'
+
+	],
+
+	/**
+	 * RANDOM - Tempo
+	 * ---------------------------------
+	 * Selezionato random prima dell'incipit
+	 * e salvato come proprietà della classe
+	 * per l'uso corretto dei verbi
+	 */
+
+	'tempo' => [
+
+		'presente',
+		'passato'
+
+	],
 
 ];

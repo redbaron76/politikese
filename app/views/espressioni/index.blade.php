@@ -9,17 +9,35 @@
 
 	<table class="table">
 		<thead>
-			<tr>
+			<tr>		
+				<th>Preposizioni</th>
+				<th>Articoli</th>				
 				<th>Espressione</th>
-				<th>Genere</th>
-				<th>Numero</th>
+				<th>Tags</th>
+				<th>G</th>
+				<th>N</th>
 				<th>&nbsp;</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach($espressioni as $espressione)
-			<tr>
+			<tr>				
+				<td>
+					@foreach($espressione['preposizioni'] as $preposizione)
+						<span class="label label-default">{{ $preposizione['text'] }}</span>
+					@endforeach
+				</td>
+				<td>
+					@foreach($espressione['articoli'] as $articolo)
+						<span class="label label-default">{{ $articolo['text'] }}</span>
+					@endforeach
+				</td>				
 				<td>{{ $espressione['text'] }}</td>
+				<td>
+					@foreach($espressione['tags'] as $tag)
+						<span class="label label-default">{{ $tag['text'] }}</span>
+					@endforeach
+				</td>
 				<td>{{ $espressione['genere'] }}</td>
 				<td>{{ $espressione['numero'] }}</td>
 				<td class="actions">
